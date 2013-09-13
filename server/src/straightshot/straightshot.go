@@ -1,12 +1,14 @@
 package straightshot
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"net/http"
 
 	"appengine"
 	"appengine/blobstore"
+	"appengine/user"
 )
 
 func serveError(c appengine.Context, w http.ResponseWriter, err error) {
@@ -68,9 +70,24 @@ func handleGetUploadURL(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, uploadURL.String())
 }
 
+func handleSecure(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-type", "text/html; charset=utf-8")
+	c := appengine.NewContext(r)
+	//u := user.Current(c)
+	u, _ := user.CurrentOAuth(c, "https://www.googleapis.com/auth/userinfo.email")
+	if u == nil {
+		url, _ := user.LoginURL(c, "/secure")
+		fmt.Fprintf(w, `<a href="%s">Sign in or register</a>`, url)
+		return
+	}
+	url, _ := user.LogoutURL(c, "/secure")
+	fmt.Fprintf(w, `Welcome, %s! (<a href="%s">sign out</a>)`, u, url)
+}
+
 func init() {
 	http.HandleFunc("/", handleRoot)
 	http.HandleFunc("/serve/", handleServe)
 	http.HandleFunc("/upload", handleUpload)
 	http.HandleFunc("/api/getuploadurl", handleGetUploadURL)
+	http.HandleFunc("/secure", handleSecure)
 }

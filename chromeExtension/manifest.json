@@ -14,7 +14,17 @@
   },
   "permissions": [
     "http://localhost:8080/",
+    "https://straightshot42.appspot.com/",
     "notifications",
-    "alarms"
-  ]
+    "alarms",
+    "identity"
+  ],
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCK5xlXYIwmNSUVuIsRoTub3PLigcatQ4PtU6Wtl/XBpQzrqbwxOXO64W/va0ztAdfFr9Wx4wzNZUglawE4rcbI1e/DxpV2Thn6uwu3tpe6vZoajd0+vdTtj5oRcpe3RXAy0hgCVBtq83TJKxtNMYvYCedCJaLxUKxvo3Y5XLDnbwIDAQAB",
+  "oauth2": {
+    "client_id": "223723647993.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  }
 }

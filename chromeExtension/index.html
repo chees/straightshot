@@ -24,6 +24,11 @@ html, body {
 }
 </style>
 <body>
+
+<div id="user_info"></div>
+<button id="signin" style="display:none">Sign in</button>
+<button id="revoke" style="display:none">Revoke token</button>
+
 <div id="instructions">
 	<p>
 		Press <span class="shortcut">Command + Control + Shift + 3</span> to take a screenshot of the whole screen.
@@ -38,6 +43,7 @@ html, body {
 </div>
 <div id="screenshot"></div>
 
+<script src="identity.js"></script>
 <script src="moment.min.js"></script>
 <script src="app.js"></script>
 </body>
