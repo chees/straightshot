@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Straightshot",
+  "version": "0.1",
+  "icons": {
+    "16": "logo.png",
+    "128": "logo.png"
+  },
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "permissions": [
+    "http://localhost:8080/",
+    "notifications",
+    "alarms"
+  ]
+}

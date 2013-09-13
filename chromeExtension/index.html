@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<style>
+.shortcut {
+	border: 1px solid #aaa;
+	background-color: #eee;
+}
+#instructions {
+	margin: 10px;
+}
+#instructions p {
+	margin-left: 20px;
+}
+#instructions .dropzone {
+	border: 2px dotted #000;
+	background-color: #0a0;
+	text-align: center;
+	margin: 40px 0;
+	padding: 40px;
+	font-size: 200%;
+}
+html, body {
+	overflow: scroll;
+}
+</style>
+<body>
+<div id="instructions">
+	<p>
+		Press <span class="shortcut">Command + Control + Shift + 3</span> to take a screenshot of the whole screen.
+	</p>
+	OR
+	<p>
+		Press <span class="shortcut">Command + Control + Shift + 4</span> to take a screenshot of an area.
+	</p>
+	<div class="dropzone">
+		Paste your screenshot here.
+	</div>
+</div>
+<div id="screenshot"></div>
+
+<script src="moment.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
